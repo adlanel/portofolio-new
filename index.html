@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Adlan El Fatih - CV</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cv-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .contact-item i {
+            width: 20px;
+            margin-right: 15px;
+            color: #3498db;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            background: #34495e;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px;
+        }
+
+        .main-section {
+            margin-bottom: 40px;
+        }
+
+        .main-section h2 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3498db;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3498db;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3498db;
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .timeline-subtitle {
+            font-size: 14px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .timeline-description {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .soft-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .soft-skill-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .soft-skill-item i {
+            font-size: 24px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .soft-skill-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cv-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                padding: 30px 20px;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .name {
+                font-size: 20px;
+            }
+        }
+
+        /* Animation */
+        .cv-card {
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item {
+            animation: fadeInLeft 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cv-card">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="profile-section">
+                    <img src="adlan.JPG" alt="Muhammad Adlan El Fatih" class="profile-image">
+                    <h1 class="name">Muhammad Adlan El Fatih</h1>
+                    <p class="title">Junior Programmer</p>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Petukangan Utara, Pesanggrahan<br>Jakarta Selatan</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <span>Jakarta, 27 Juni 2003</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0813-8660-7778</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>adlanel441@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h3 class="section-title">Technical Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">HTML & CSS</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">JavaScript</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">PHP</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">MySQL</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Bootstrap/Tailwind</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">English (Basic)</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="main-section">
+                    <h2>About Me</h2>
+                    <p class="about-text">
+                        Programmer junior dengan pemahaman dasar pada bahasa pemrograman CSS, HTML, PHP, dan JavaScript. 
+                        Memiliki kemampuan dalam mengerjakan proyek pembuatan website pada bagian front end. Antusias 
+                        untuk belajar teknologi baru dan berkembang dalam lingkungan tim yang kolaboratif. Mencari peluang 
+                        untuk mengembangkan keterampilan lebih lanjut dan berkontribusi pada proyek nyata.
+                    </p>
+                </div>
+
+                <div class="main-section">
+                    <h2>Education</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021 - Sekarang</div>
+                            <div class="timeline-title">S1 Teknik Informatika</div>
+                            <div class="timeline-subtitle">Universitas Pamulang</div>
+                            <div class="timeline-description">Tangerang Selatan</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021</div>
+                            <div class="timeline-title">SMK Negeri 43 Jakarta</div>
+                            <div class="timeline-subtitle">Bisnis Daring dan Pemasaran</div>
+                            <div class="timeline-description">Jakarta Selatan</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-section">
+                    <h2>Work Experience</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Juli 2022 - Sekarang</div>
+                            <div class="timeline-title">Freelance Waiters & Cashier</div>
+                            <div class="timeline-subtitle">Dijan's Kemang</div>
+                            <div class="timeline-description">
+                                Bekerja di area sebagai pelayan tamu, sekaligus sebagai kasir.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Januari 2020 - Maret 2020</div>
+                            <div class="timeline-title">Store Staff Lotte Mart</div>
+                            <div class="timeline-subtitle">Magang Divisi Non-Food Lotte Mart Gandaria City</div>
+                            <div class="timeline-description">
+                                Membuat desain promo, cek stock produk, serta melayani customer.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-section">
+                    <h2>Projects & Certifications</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">24 Oktober 2024 - Sekarang</div>
+                            <div class="timeline-title">Perancangan SPK Pengelolaan Hukuman Disiplin Siswa</div>
+                            <div class="timeline-subtitle">Penyusunan Skripsi</div>
+                            <div class="timeline-description">
+                                Melakukan perancangan pada website terkait hukuman disiplin siswa dengan studi kasus di SMK IQRO Pasar Kemis 
+                                dengan menggunakan CSS, HTML, JavaScript, dan PHP.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">April 2024 - Juni 2024</div>
+                            <div class="timeline-title">Leader Team Kerja Praktek</div>
+                            <div class="timeline-subtitle">SMK IQRO Pasar Kemis</div>
+                            <div class="timeline-description">
+                                Membuat website sistem informasi sekolah, hingga sistem pendaftaran online untuk memudahkan administrasi PPDB.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">21 Maret 2024</div>
+                            <div class="timeline-title">TOEFL Test Pre-Intermediate</div>
+                            <div class="timeline-subtitle">Sertifikasi Lembaga Bahasa UNPAM</div>
+                            <div class="timeline-description">
+                                Mendapat skor 500 / PRE-INTERMEDIATE di lembaga bahasa yang ada di Universitas Pamulang.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">27 November 2023</div>
+                            <div class="timeline-title">Anggota PKM</div>
+                            <div class="timeline-subtitle">MI AR-RABIATUL ADAWIYAH PONDOK BAHAR</div>
+                            <div class="timeline-description">
+                                Menjadi pengarah untuk penyusunan materi PKM dan pembuatan jurnal.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-section">
+                    <h2>Soft Skills</h2>
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill-item">
+                            <i class="fas fa-users"></i>
+                            <div class="soft-skill-title">Team Collaboration</div>
+                            <div>Mampu berkolaborasi dengan anggota tim lain.</div>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <div class="soft-skill-title">Problem Solving</div>
+                            <div>Mampu mengidentifikasi masalah dan mencari solusi yang efektif dan efisien.</div>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="soft-skill-title">Continuous Learning</div>
+                            <div>Bersedia dan tertarik untuk mempelajari hal-hal baru, seperti teknologi terbaru atau teknik pengembangan yang lebih efisien.</div>
+                        </div>
+                        <div class="soft-skill-item">
+                            <i class="fas fa-dumbbell"></i>
+                            <div class="soft-skill-title">Persistence</div>
+                            <div>Kemampuan untuk tidak mudah menyerah ketika menghadapi tantangan.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animate skill bars on page load
+        window.addEventListener('load', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
